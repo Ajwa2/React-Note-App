@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import NoteList from './components/NoteList/Note';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import EachNote from './components/eachNote/EachNote';
+import { useState } from 'react';
+
 
 function App() {
+  const [allNotes, setAllNotes]= useState( JSON.parse(localStorage.getItem("Notes")) || [])
+  const [searchText,setSearchText] = useState("");
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+        <div className="App">
+          <Routes>
+            <Route path="/" >
+              <Route path="" element={<NoteList allNotes={allNotes.filter((e)=>e.text.toLowerCase().includes(searchText.toLowerCase()))} setAllNotes={setAllNotes} setSearchText={setSearchText}/>} />
+              <Route path="EachNote/:id" element={<EachNote allNotes={allNotes} setAllNotes={setAllNotes}/>}/>
+            </Route>
+          </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 

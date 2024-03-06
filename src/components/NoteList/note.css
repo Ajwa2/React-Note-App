@@ -1,0 +1,19 @@
+.note_save{
+    display: flex;
+    justify-content: end;
+}
+.note_save button{
+    color: whitesmoke;
+}
+.note_save button:hover{
+    background: black;
+}
+.main-note-title{
+    text-align: center;
+}
+.main-note-title a{
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase ;
+}
+

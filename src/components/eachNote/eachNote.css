@@ -1,0 +1,17 @@
+.note.description{
+    margin: 5% 10%;
+}
+.note-title{
+    text-align: center;
+}
+.btns{
+    display: flex;
+    justify-content: end;
+}
+.btns button{
+    color: black;
+}
+.btns button:hover{
+    background-color: antiquewhite;
+    border-radius: 8px;
+}
